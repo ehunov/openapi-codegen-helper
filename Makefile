@@ -1,15 +1,16 @@
-INPUTFILE=https://api.swaggerhub.com/apis/asuran/GINS/1.0.0
-OUTPUTDIR=/local/out/php
-LANG=php
-PACKAGE=gins-client
-VERSION=1.0.0
+i=https://api.swaggerhub.com/apis/asuran/GINS/1.0.0
+o=gins-php-client
+g=php
 
-gen:
+generate:
 	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-        -i $(INPUTFILE) \
-        -g $(LANG) \
-        -o $(OUTPUTDIR) \
-        -c /local/$(LANG).json
+        -i $(i) \
+        -g $(g) \
+        -o /local/out/$(o) \
+        -c /local/$(g).local.json
+
+config-help:
+	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli config-help -g $(g)
 
 help:
-	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli config-help -g $(LANG)
+	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli help
