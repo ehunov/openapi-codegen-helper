@@ -1,0 +1,5 @@
+{
+    "invokerPackage" : "Generated\\Namespace",
+    "artifactVersion": "1.0.0",
+    "variableNamingConvention": "camelCase"
+}
